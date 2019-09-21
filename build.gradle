@@ -13,6 +13,7 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
+apply plugin: 'application'
 
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = 1.8
@@ -35,6 +36,8 @@ sourceSets {
 		}
 	}
 }
+
+mainClassName  = 'com.marcnuri.example.angularboot.AngularbootApplication'
 
 processResources {
 	dependsOn "buildAngular"
@@ -59,8 +62,8 @@ task installAngular(type:Exec) {
 	group = BasePlugin.BUILD_GROUP
 //	outputs.dir "$webappDir/dist"
 	if (System.getProperty("os.name").toUpperCase().contains("WINDOWS")){
-		commandLine "npm.cmd", "install"
+		commandLine "npm.cmd", "install", "--no-optional", "--no-shrinkwrap"
 	} else {
-		commandLine "npm", "install"
+		commandLine "npm", "install", "--no-optional", "--no-shrinkwrap"
 	}
 }

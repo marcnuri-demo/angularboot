@@ -25,11 +25,8 @@ hs_err_pid*
 .gradle
 /build/
 /bin/
-gradle/
 gradle-bootRun
 gradle-hotreload
-gradlew
-gradlew.bat
 
 ### STS ###
 .apt_generated
